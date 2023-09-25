@@ -578,15 +578,6 @@ class RCTVideo: UIView, RCTVideoPlayerViewControllerDelegate, RCTPlayerObserverH
     @objc
     func setAudioOutput(_ audioOutput:String) {
         _audioOutput = audioOutput
-        do {
-            if audioOutput == "speaker" {
-                try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
-            } else if audioOutput == "earpiece" {
-                try AVAudioSession.sharedInstance().overrideOutputAudioPort(AVAudioSession.PortOverride.none)
-            }
-        } catch {
-            print("Error occurred: \(error.localizedDescription)")
-        }
     }
 
     @objc
